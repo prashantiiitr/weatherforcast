@@ -7,8 +7,7 @@ function applyTheme(theme){
   const el = document.documentElement
   el.classList.toggle('dark', isDark)
   try { localStorage.setItem(KEY, theme) } catch {}
-  // Debug: quickly verify it’s flipping
-  // console.log('theme applied:', theme, 'has dark?', el.classList.contains('dark'))
+ 
 }
 
 function detectInitial(){

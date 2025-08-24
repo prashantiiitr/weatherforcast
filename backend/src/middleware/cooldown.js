@@ -1,5 +1,4 @@
-// backend/src/middleware/cooldown.js
-const last = new Map(); // key: `${uid}:${path}`
+const last = new Map(); 
 
 export function cooldown(ms = 600) {
   return (req, res, next) => {

@@ -65,11 +65,11 @@ export default function CityCard({ city, onRemoved, API, userId }){
           src={`https://openweathermap.org/img/wn/${cur?.weather?.[0]?.icon || '01d'}@2x.png`}
         />
         <div>
-          {/* Temperature — always uses CSS variable color */}
+          {}
           <div className="temp text-3xl font-bold">
             {cur ? Math.round(cur.main.temp) : '--'}°C
           </div>
-          {/* Feels like & description — muted helper class */}
+          {}
           <div className="muted text-sm">
             {cur
               ? `Feels ${Math.round(cur.main.feels_like)}°, ${cur.weather?.[0]?.description}`
@@ -77,7 +77,7 @@ export default function CityCard({ city, onRemoved, API, userId }){
           </div>
         </div>
 
-        {/* Right-hand metrics — muted as well */}
+        {}
         <div className="ml-auto text-right text-sm muted">
           <div>Humidity: {cur?.main.humidity ?? '--'}%</div>
           <div>Wind: {cur ? Math.round(cur.wind.speed) : '--'} m/s</div>

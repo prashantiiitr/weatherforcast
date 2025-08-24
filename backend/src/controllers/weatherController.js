@@ -39,7 +39,7 @@ export async function weather(req, res) {
     const key = (process.env.OPENWEATHER_API_KEY || '').trim();
     const { lat, lon } = city;
 
-    // If coords missing or key missing → serve mock (keeps UX alive)
+    
     if (lat == null || lon == null) {
       console.warn('weather: city missing lat/lon → mock');
       return res.json(makeMock(city));

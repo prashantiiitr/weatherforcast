@@ -14,7 +14,7 @@ export default function AddCity({ onAdded }){
   const userId = useMemo(()=> uid(), [])
   const API = import.meta.env.VITE_API_BASE
 
-  // NEW: keep a ref for the debounce timer
+
   const debounceRef = useRef(null)
 
   async function doSearch(query){
@@ -31,15 +31,15 @@ export default function AddCity({ onAdded }){
     }
   }
 
-  // NEW: auto-search with debounce when user types
+
   useEffect(() => {
     if (debounceRef.current) clearTimeout(debounceRef.current)
     if (q.trim().length < 2) { setResults([]); return }
-    debounceRef.current = setTimeout(() => doSearch(q), 350) // 350ms debounce
+    debounceRef.current = setTimeout(() => doSearch(q), 350) 
     return () => clearTimeout(debounceRef.current)
   }, [q])
 
-  // Keep the old explicit search for Enter/Click fallback
+ 
   async function search(){ doSearch(q) }
 
   async function addCity(c){
@@ -54,7 +54,6 @@ export default function AddCity({ onAdded }){
         onAdded && onAdded()
       } else {
         const e = await res.json()
-        // nicer duplicate-city handling
         if (res.status === 409) alert('City already added.')
         else alert(e.error || 'Failed to add')
       }
@@ -70,15 +69,15 @@ export default function AddCity({ onAdded }){
           className="input"
           placeholder="Search city (e.g., Ranchi, Mumbai, London)"
           value={q}
-          onChange={(e) => setQ(e.target.value)}         // NEW: drives debounce
-          onKeyDown={(e) => e.key === 'Enter' && search()} // fallback
+          onChange={(e) => setQ(e.target.value)}         
+          onKeyDown={(e) => e.key === 'Enter' && search()} 
         />
         <button className="btn" onClick={search} disabled={loading}>
           {loading ? 'Searching…' : 'Search'}
         </button>
       </div>
 
-      {/* a11y live region to announce search status/results */}
+      {}
       <div className="sr-only" aria-live="polite">
         {loading
           ? 'Searching…'
@@ -87,12 +86,12 @@ export default function AddCity({ onAdded }){
               : '')}
       </div>
 
-      {/* helper for short queries */}
+      {}
       {q.trim().length > 0 && q.trim().length < 2 && (
         <div className="mt-2 text-sm text-gray-500">Type at least 2 characters to search.</div>
       )}
 
-      {/* results list */}
+      {}
       {!loading && results.length > 0 && (
         <div className="mt-3 grid gap-2">
           {results.map((r, i) => (
@@ -107,7 +106,7 @@ export default function AddCity({ onAdded }){
         </div>
       )}
 
-      {/* no results hint */}
+      {}
       {!loading && q.trim().length >= 2 && results.length === 0 && (
         <div className="mt-3 text-sm text-gray-500">No matches found. Try another spelling.</div>
       )}

@@ -1,4 +1,4 @@
-import ThemeToggle from './ThemeToggle' // NEW: import
+import ThemeToggle from './ThemeToggle' 
 
 export default function Header(){
   return (
@@ -12,7 +12,7 @@ export default function Header(){
       </div>
 
       <div className="flex items-center gap-3">
-        <ThemeToggle /> {/* NEW: theme switch button */}
+        <ThemeToggle /> {}
       </div>
     </header>
   )

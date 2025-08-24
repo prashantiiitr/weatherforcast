@@ -21,7 +21,7 @@ export default function App(){
     try{
       const res = await fetch(`${API}/api/cities`, { headers: { 'x-user-id': userId } })
       const data = await res.json()
-      // NEW: cap to 12 to prevent UI overflow if user adds too many
+      
       setCities((Array.isArray(data) ? data : []).slice(0, 12))
     }catch{
       setCities([])
