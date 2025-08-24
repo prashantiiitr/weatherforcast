@@ -9,6 +9,10 @@ import { connectDB } from './lib/db.js';
 import { cooldown } from './middleware/cooldown.js';
 import { logger } from './middleware/logger.js'
 const app = express();
+app.get('/', (_req, res) => {
+  res.type('text/plain').send('WeatherDeck API. Try /api/health');
+});
+
 app.use(cors({ origin: process.env.CLIENT_ORIGIN?.split(',') || '*' }));
 app.use(express.json());
 app.use(userId);
