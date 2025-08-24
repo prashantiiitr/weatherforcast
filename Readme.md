@@ -6,7 +6,6 @@ Built with the **MERN stack + Tailwind CSS**, powered by **OpenWeather API**, an
 ---
 
 ## 🚀 Live Demo
-.......................................
  https://weatherforcast-zeta.vercel.app  
 
 
@@ -37,21 +36,21 @@ Built with the **MERN stack + Tailwind CSS**, powered by **OpenWeather API**, an
 - ♿ Accessibility improvements (`aria-live`, button labels)  
 
 Backend Setup
-....................
+
 cd backend
 cp .env.example .env
 npm install
 npm run dev
 
 Frontend Setup
-...................
+
 cd frontend
 cd .env.example .env
 npm install
 npm run dev
 
 Environment Variables
-.........................................................................
+
 MONGODB_URI=mongourixxxxx               
 OPENWEATHER_API_KEY=openweatherurixxxxx
 CLIENT_ORIGIN=http://localhost:5173,https://weatherforcast-zeta.vercel.app
@@ -60,14 +59,10 @@ CACHE_TTL_FORECAST=3600
 GEO_CACHE_TTL=604800
 NODE_ENV=development
 
-Frontend (.env)
-...................................
-VITE_API_BASE=http://localhost:4000 
-
 
 
 📡 API Documentation
-...................
+
 GET /api/health
 Returns API health status.
 GET /api/search?q=<query> //Returns up to 5 cities for the query.
@@ -87,7 +82,7 @@ GET /api/weather?cityId=<cityId>Returns current weather and 5-day forecast for a
 
 
 🗄️ Caching Strategy
-....................
+
 
 Current weather: CACHE_TTL_CURRENT (default 10 min)
 Forecast: CACHE_TTL_FORECAST (default 1 hr)
@@ -96,7 +91,7 @@ Cached in weathercaches collection with TTL indexes
 
 
 📐 Architecture
-................
+
 frontend/   → React + Vite + Tailwind (UI, autosuggest, dark/light)
 backend/    → Express (REST API, caching, Mongo models)
 └─ routes/  → /api/search, /api/cities, /api/weather
@@ -106,7 +101,7 @@ database    → MongoDB Atlas (cities + cache)
 
 
 📝 Assumptions
-................
+
 
 Each user is identified with x-user-id header (no login UI in scope).
 Uses OpenWeather free tier → caching reduces API calls.
@@ -114,7 +109,7 @@ Only metric units (°C) supported.
 
 
 ⚠️ Known Limitations
-....................
+
 
 No authentication system (header-based only).
 Basic cooldown guard instead of full distributed rate limiting.
@@ -122,7 +117,7 @@ Unit toggle (°C/°F) not implemented.
 
 
 🚧 Future Improvements
-.........................
+
 
 OAuth login & per-user accounts
 Redis or in-memory cache for performance
@@ -134,7 +129,7 @@ Offline/PWA mode
 
 
 🤖 AI Tools Used
-.................
+
 
 ChatGPT for scaffolding & troubleshooting
 GitHub Copilot for small refactors
